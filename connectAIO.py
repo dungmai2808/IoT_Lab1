@@ -5,7 +5,7 @@ import random
 
 AIO_FEED_ID = ["nutnhan1", "nutnhan2"]
 AIO_USERNAME = "dungmai2808"
-AIO_KEY = "aio_tHrt54YOnmfxuXdcUNbYiT0B7bTW"
+AIO_KEY = ""
 
 def connected(client):
     print("Ket noi thanh cong ...")
@@ -42,14 +42,14 @@ while True:
             client.publish("cambien1", temp)
             sensor_type = 1
         elif sensor_type == 1:
-            print("Humidity...")
-            humi = random.randint(50, 70)
-            client.publish("cambien2", humi)
-            sensor_type =2
-        elif sensor_type == 2:
             print("Light...")
             light = random.randint(100, 500)
-            client.publish("cambien3", light)
+            client.publish("cambien2", light)
+            sensor_type = 2
+        elif sensor_type == 2:
+            print("Humidity...")
+            humi = random.randint(50, 70)
+            client.publish("cambien3", humi)
             sensor_type = 0
 
     time.sleep(1)
